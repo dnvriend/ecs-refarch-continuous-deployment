@@ -44,7 +44,7 @@ Parameters:
 
   TemplateBucket:
     Type: String
-    Default: ecs-refarch-continuous-deployment
+    Default: dnvriend-ecs-refarch-cd
     Description: >
       The S3 bucket from which to fetch the templates used by this stack.
 

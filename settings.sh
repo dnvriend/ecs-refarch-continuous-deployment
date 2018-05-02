@@ -1,0 +1,18 @@
+STACK_NAME="ecs-refarch-cd"
+TEMPLATE_BUCKET="dnvriend-ecs-refarch-cd"
+ECS_LAUNCH_TYPE="Fargate"
+GITHUB_TOKEN=$ECS_GITHUB_TOKEN
+GITHUB_USER="dnvriend"
+GITHUB_REPO="https://github.com/dnvriend/ecs-demo-php-simple-app.git"
+GITHUB_BRANCH="master"
+AWS_REGION="eu-west-1"
+
+echo "=================================="
+echo "Settings:"
+echo "=================================="
+echo "STACK_NAME=${STACK_NAME}"
+echo "TEMPLATE_BUCKET=${TEMPLATE_BUCKET}"
+echo "ECS_LAUNCH_TYPE=${ECS_LAUNCH_TYPE}"
+echo "AWS_REGION=${AWS_REGION}"
+echo "GITHUB_TOKEN=${GITHUB_TOKEN}"
+echo "=================================="
