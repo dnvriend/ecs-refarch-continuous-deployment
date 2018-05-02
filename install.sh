@@ -5,6 +5,7 @@ createBucket() {
     set -o errexit -o xtrace
     echo "Creating bucket: s3://${TEMPLATE_BUCKET}"
     aws s3api head-bucket --bucket "${TEMPLATE_BUCKET}" || aws s3 mb "s3://${TEMPLATE_BUCKET}" --region ${AWS_REGION}
+    sleep 2 # sleeping 2 seconds for eventual consistency
     echo "Setting bucket policy"
     aws s3api put-bucket-policy --bucket "${TEMPLATE_BUCKET}" \
         --policy "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:GetObject\",\"s3:GetObjectVersion\"],\"Resource\":\"arn:aws:s3:::${TEMPLATE_BUCKET}/*\"},{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:ListBucket\",\"s3:GetBucketVersioning\"],\"Resource\":\"arn:aws:s3:::${TEMPLATE_BUCKET}\"}]}"
